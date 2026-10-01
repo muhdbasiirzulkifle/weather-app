@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A simple weather app built with HTML, CSS, and JavaScript. Search a city and explore its weather and five-day forecast." />
+    <title>Weather Window</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="site-header">
+        <a class="brand" href="./"><span aria-hidden="true">◒</span> Weather Window</a>
+        <span class="header-note">A little look outside.</span>
+      </header>
+
+      <main>
+        <section class="intro" aria-labelledby="intro-title">
+          <p class="eyebrow">YOUR EVERYDAY FORECAST</p>
+          <h1 id="intro-title">Make room for the weather.</h1>
+          <p>Somewhere sunny? A little rainy? Find out before you head out.</p>
+          <p id="demo-notice" class="demo-notice">Practice mode · Sample weather, not live data. Try searching “Kuala Lumpur”.</p>
+        </section>
+
+        <section class="search-section" aria-label="Find a city">
+          <form id="search-form">
+            <fieldset id="search-controls">
+              <label for="city-input">Where are we looking?</label>
+              <div class="search-row">
+                <input id="city-input" name="city" type="search" placeholder="Search a city, e.g. Kuala Lumpur" maxlength="100" required />
+                <button type="submit" id="search-button">Find weather <span aria-hidden="true">↗</span></button>
+              </div>
+            </fieldset>
+          </form>
+          <p id="status" class="status" role="status" aria-live="polite" aria-atomic="true"></p>
+          <fieldset id="location-options" class="location-options" hidden>
+            <legend>Choose a location</legend>
+            <ul id="location-list"></ul>
+          </fieldset>
+        </section>
+
+        <div id="weather" hidden>
+          <section class="current-weather" aria-labelledby="location-name">
+            <div class="weather-topline">
+              <p class="eyebrow">CURRENT CONDITIONS</p>
+              <div class="unit-switch" role="group" aria-label="Temperature unit">
+                <button type="button" id="celsius-button" aria-label="Celsius" aria-pressed="true">°C</button>
+                <button type="button" id="fahrenheit-button" aria-label="Fahrenheit" aria-pressed="false">°F</button>
+              </div>
+            </div>
+            <h2 id="location-name"></h2>
+            <p id="location-region" class="location-region"></p>
+            <p id="weather-time" class="weather-time"></p>
+
+            <div class="current-summary">
+              <div>
+                <p id="temperature" class="temperature"></p>
+                <p id="condition" class="condition"></p>
+                <p id="feels-like" class="feels-like"></p>
+              </div>
+              <span id="weather-icon" class="weather-icon" aria-hidden="true"></span>
+            </div>
+
+            <dl class="weather-details">
+              <div><dt>Humidity</dt><dd id="humidity"></dd></div>
+              <div><dt>Wind speed</dt><dd id="wind"></dd></div>
+              <div><dt>Rain chance today</dt><dd id="rain-chance"></dd></div>
+            </dl>
+          </section>
+
+          <section class="forecast-section" aria-labelledby="forecast-title">
+            <div class="section-heading">
+              <h2 id="forecast-title">The days ahead</h2>
+              <p>Your 5-day outlook</p>
+            </div>
+            <div id="forecast" class="forecast-grid"></div>
+            <p class="forecast-note">Daily highs and lows · Rain percentages show the chance of precipitation.</p>
+          </section>
+        </div>
+
+        <noscript><p class="no-script">Please enable JavaScript to search for a city and load its weather.</p></noscript>
+      </main>
+
+      <footer>
+        <p>Built for curious minds. Just HTML, CSS & JavaScript.</p>
+        <p>API exercise: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> · Location data: <a href="https://www.geonames.org/" target="_blank" rel="noopener noreferrer">GeoNames</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
